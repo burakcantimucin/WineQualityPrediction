@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+
+<style>
+    div#last-results>div,
+    div#quick-menu>div {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    div.widget {
+        padding: 10px 10px 1px 10px;
+    }
+
+    i.fa {
+        float: right;
+        margin-top: 5px;
+    }
+</style>
+<div class="container">
+    <h3 style="margin-top:80px">Ana Sayfa</h3>
+    <hr>
+    <div id="last-results" class="row">
+        <div id="proje-amaci" class="col-md-4">
+            <div class="widget widget-stats bg-secondary rounded">
+                <div class="stats-info">
+                    <h4>Proje Amacı</h4>
+                    <hr>
+                    <p>Derin Öğrenme tabanlı bir Şarap Kalite Tahmini gerçekleştirimi yapılarak tadını bilmediğimiz bir
+                        şarap hakkında kalite puanı ile tercih yapmamızı sağlayacaktır.</p>
+                </div>
+            </div>
+        </div>
+        <div id="proje-konusu" class="col-md-4">
+            <div class="widget widget-stats bg-secondary rounded">
+                <div class="stats-info">
+                    <h4>Proje Konusu</h4>
+                    <hr>
+                    <p>Yaklaşık 6500 şaraba ait 11 tane öznitelik aracılığıyla Derin Öğrenme teknikleri kullanılarak
+                        kırmızı veya beyaz bir şarabın kalite puanı tahmin edilecektir.</p>
+                </div>
+            </div>
+        </div>
+        <div id="proje-teknolojileri" class="col-md-4">
+            <div class="widget widget-stats bg-secondary rounded">
+                <div class="stats-info">
+                    <h4>Proje Teknolojileri</h4>
+                    <hr>
+                    <p>Ortam dili olarak Veri Bilimi alanında en popüler dillerden birisi olan Python ve Derin Öğrenme
+                        olarak en popüler kütüphanelerden birisi olan Keras kullanlmıştır.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quick-menu" class="row">
+        <div class="card flex-row flex-wrap" style="margin-right:58px">
+            <div class="card-header border-0">
+                <img src="../static/img/home/red-wine.jpg" width="200" alt="">
+            </div>
+            <div class="card-block px-2" style="padding-top: 7px; margin-left: 15px">
+                <h5 class="card-title">Kırmızı Şarap</h5>
+                <p class="card-text">İlgili özniteliklere dayalı olarak<br>tahmini kalite puanlarını görebilirsiniz.</p>
+                <a href="/redwinequalityprediction" class="btn btn-primary">Sayfaya git</a>
+            </div>
+        </div>
+
+        <div class="card flex-row flex-wrap">
+            <div class="card-header border-0">
+                <img src="../static/img/home/white-wine.jpg" width="200" alt="">
+            </div>
+            <div class="card-block px-2" style="padding-top: 7px; margin-left: 15px">
+                <h5 class="card-title">Beyaz Şarap</h5>
+                <p class="card-text">İlgili özniteliklere dayalı olarak<br>tahmini kalite puanlarını görebilirsiniz.</p>
+                <a href="/whitewinequalityprediction" class="btn btn-primary">Sayfaya git</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div style="margin-bottom:30px" class="container">
+    <h3 style="margin-top:80px">Beyaz Şarap Kalite Tahmini</h3>
+    <hr>
+    <table class="display" style="width:100%;margin-bottom:30px">
+        <thead>
+            <tr>
+                <th>Sabit Asit</th>
+                <th>Uçucu Asit</th>
+                <th>Sitrik Asit</th>
+                <th>Artık Şeker</th>
+                <th>Klorit</th>
+                <th>Serbest Sülfür Dioksit</th>
+                <th>Toplam Sülfür Dioksit</th>
+                <th>Yoğunluk</th>
+                <th>ph</th>
+                <th>Sülfat</th>
+                <th>Alkol Seviyesi</th>
+                <th>Gerçek Kalite</th>
+                <th>Tahmini Kalite</th>
+            </tr>
+        </thead>
+        {% for x in data %}
+        <tbody>
+            <tr>
+                <td>{{ x.pH }}</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+                <td>{{ x.pH }}</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("api/v1/get_white_wine_quality_prediction", function (response){
+                var list = []
+                for (i=0; i<response.data.length;i++) {
+                    list.push([response.data[i]["free-sulfur-dioxide"], 
+                              response.data[i]["volatile-acidity"], 
+                              response.data[i]["citric-acid"], 
+                              response.data[i]["residual-sugar"], 
+                              response.data[i]["chlorides"], 
+                              response.data[i]["free-sulfur-dioxide"], 
+                              response.data[i]["total-sulfur-dioxide"], 
+                              response.data[i]["density"], 
+                              response.data[i]["pH"], 
+                              response.data[i]["sulphates"], 
+                              response.data[i]["alcohol"], 
+                              response.data[i]["real-quality"], 
+                              response.data[i]["predicted-quality"]])
+                }
+                $('table').DataTable({
+                    "data": list
+                });
+            });
+        });
+    </script>
+</div>
+{% endblock %}
