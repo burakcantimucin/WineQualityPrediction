@@ -2,3 +2,4 @@
 * text=auto
 
 Flask/* linguist-vendored
+*.ipynb linguist-vendored
