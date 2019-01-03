@@ -180,7 +180,6 @@ white_wine_y_pred = [np.where(r==1)[0][0] for r in white_wine_y_pred]
 white_wine_cm = confusion_matrix(white_wine_y_test, white_wine_y_pred)
 print(white_wine_cm)
 
-
 # Kırmızı ve beyaz şarap tahminleri eski tablolarla birleştirilir
 red_wine_X_test = pd.DataFrame(cache_red_wine_X_test)
 red_wine_y_test = pd.DataFrame(red_wine_y_test)
